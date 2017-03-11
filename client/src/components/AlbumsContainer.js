@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Match from 'react-router/Match';
 import Album from './Album';
-import VerticalMenu from './VerticalMenu'
+import VerticalMenu from './VerticalMenu';
 import { client } from '../Client';
 
 const ALBUM_IDS = [
@@ -29,7 +29,7 @@ class AlbumsContainer extends Component {
   }
 
   getAlbums() {
-    client.setToken('D6W69PRgCoDKgHZGJmRUNA');
+    // client.setToken('D6W69PRgCoDKgHZGJmRUNA');
     client.getAlbums(ALBUM_IDS)
       .then((albums) => (
         this.setState({
@@ -55,6 +55,7 @@ class AlbumsContainer extends Component {
             albumsPathname={this.props.pathname} />
           </div>
           <div className='ui ten wide column'>
+
             <Match pattern={`${this.props.pathname}/:albumId`}
             render={({ params }) => {
               const album = this.state.albums.find(
